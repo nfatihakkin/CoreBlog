@@ -1,0 +1,20 @@
+﻿
+@model CoreBlog.Controllers.Class1
+
+@{
+    ViewData["Title"] = "EditEmployee";
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+
+<h1>API ile Çalışan Güncelleme</h1>
+
+<form method="post">
+    <label>ID</label>
+    @Html.TextBoxFor(x => x.EmployeeID, new { @class = "form-control" })
+    <br />
+    <label>Name</label>
+    @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success" >Güncelle</button>
+</form>
+

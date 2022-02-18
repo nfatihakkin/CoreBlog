@@ -1,0 +1,15 @@
+﻿@using CoreBlog.Controllers
+@model Class1
+ 
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Çalışan Adı Soyadı</label>
+    <input type="text" asp-for="@Model.EmployeeName" class="form-control" />
+    <br />
+    <button type="submit" class="btn btn-outline-info"> Çalışan Ekle</button>
+</form>
+

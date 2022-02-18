@@ -1,0 +1,27 @@
+﻿@using CoreBlog.Controllers
+@model List<Class1>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Adı Soyadı</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.EmployeeID</th>
+            <td>@item.EmployeeName</td>
+            <td><a href="/Test/DeleteEmployee/@item.EmployeeID" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Test/EditEmployee/@item.EmployeeID" class="btn btn-outline-warning">Düzenle</a></td>
+            
+        </tr>
+    }
+</table>
+
+<a href="/Test/AddEmployee" class="btn btn-outline-info">Çalışan Ekle</a>

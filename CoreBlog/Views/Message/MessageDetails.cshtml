@@ -1,0 +1,13 @@
+﻿@model EntityLayer.Concrete.Message2
+
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+@Html.HiddenFor(x=>x.MessageID)
+
+<h1>Gelen mesaj alanı </h1>
+@Html.DisplayFor(x=>x.SenderID) 
+@Html.DisplayTextFor(x => x.MessageDetails)
+

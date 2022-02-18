@@ -1,0 +1,61 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewData["Title"] = "BlogListByWriter";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Yazarın Blogları</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Blog Başlığı</th>
+        <th>Oluşturulma Tarihi</th>
+        <th>Kategori</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.BlogID</th>
+            <td>@item.BlogTitle </td>
+            <td>@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy")) </td>
+            <td>@item.Category.CategoryName </td>
+            @if (item.BlogStatus)
+            {
+                <td><span class="badge badge-dark">Aktif</span> </td>
+            }
+            else
+            {
+                <td><span class="badge badge-secondary">Pasif</span></td>
+            }
+
+            <td><a href="/Blog/BlogDelete/@item.BlogID" class="btn btn-danger">Sil</a> </td>
+            <td><a href="/Blog/BlogUpdate/@item.BlogID" class="btn btn-warning">Düzenle</a> </td>
+        </tr>
+
+    }
+</table>
+
+<a class="btn btn-gradient-warning" data-toggle="modal" data-target="#Modal1">Popup'ı sil'e atıcaksın!</a>
+<div  class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div align="center" class="modal-content">
+           
+                <center><h2  class="mt-5" style="text-align:center">Silme İşlemi Onayı</h2> </center>
+            
+            <div class="modal-body mt-2">
+                Silmek istediğinizden emin misiniz ?<br /><br />
+                <a class="btn btn-primary mt-2 m-1">Evet</a>
+                <a class="btn btn-secondary mt-2 m-1">Hayır</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<a href="/Blog/BlogAdd/" class="btn btn-primary">Yeni Blog Oluştur</a>
+
