@@ -32,7 +32,7 @@ namespace CoreBlog.Controllers
         }
         public IActionResult BlogListByWriter()
         {
-            //revize
+            //revizeler yapıldı
             var userMail = User.Identity.Name;
             var blogValues = wm.GetWriterByMail2(userMail);
             var writerIDAuth = blogValues.WriterID;
